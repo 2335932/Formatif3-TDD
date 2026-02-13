@@ -6,7 +6,7 @@ import java.util.List;
 public class Calculatrice {
 
 
-    final List<Character> dictionnaireSeparateur = List.of('\n');
+    final List<Character> dictionnaireSeparateur = List.of('\n', ',');
 
     int Add(String... nombres) {
 
@@ -15,17 +15,27 @@ public class Calculatrice {
         char caractere = ' ';
 
         if (nombres != null) {
-            for (int i = 0; i < nombres.length; i++) {
-                for (int j = 0; j < nombres[i].length(); j++) {
-                    caractere = nombres[i].charAt(j);
-                    if (!dictionnaireSeparateur.contains(caractere)) {
-                        chaineNumber = chaineNumber.concat(String.valueOf(caractere));
-                    } else {
-                        result += Integer.parseInt(chaineNumber);
-                        chaineNumber = "";
-                    }
+            int dernierIndexArray = nombres.length - 1;
+            int dernierIndexSubArray = nombres[dernierIndexArray].length() - 1;
+            char dernierCaractere;
+            if (!nombres[dernierIndexArray].isEmpty()) {
+                dernierCaractere = nombres[dernierIndexArray].charAt(dernierIndexSubArray);
+                if (dictionnaireSeparateur.contains(dernierCaractere)) {
+                    throw new RuntimeException("Chaine ne peut pas finir avec un separateur.");
                 }
-                result += Integer.parseInt(chaineNumber);
+
+                for (int i = 0; i < nombres.length; i++) {
+                    for (int j = 0; j < nombres[i].length(); j++) {
+                        caractere = nombres[i].charAt(j);
+                        if (!dictionnaireSeparateur.contains(caractere)) {
+                            chaineNumber = chaineNumber.concat(String.valueOf(caractere));
+                        } else {
+                            result += Integer.parseInt(chaineNumber);
+                            chaineNumber = "";
+                        }
+                    }
+                    result += Integer.parseInt(chaineNumber);
+                }
             }
         }
         return result;

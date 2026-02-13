@@ -2,6 +2,9 @@ package org.climoilou.vetm.formatif1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+
+import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,6 +15,7 @@ public class CalculatriceTest {
 
     private static final int VALEUR_SIX= 6;
     private static final String DELIMITEUR_NEWLIGNE= "1\n2\n3";
+    private static final String STRING_WITH_TRAILING_SEPARATOR = "1\n2\n3\n";
     Calculatrice calculatrice;
     final static String NUMBERS_EMPTY = "";
     final static int NUMBER_ZERO = 0;
@@ -57,7 +61,12 @@ public class CalculatriceTest {
         int result = calculatrice.Add(DELIMITEUR_NEWLIGNE);
 
         assertEquals(VALEUR_SIX,result);
+    }
 
+    @Test
+    public void givenSeparatorAtStringEnd_whenAdd_throwAssertRuntimeException(){
+       Executable executable = () -> calculatrice.Add(STRING_WITH_TRAILING_SEPARATOR);
+        assertThrows(RuntimeException.class, executable);
     }
 
 }

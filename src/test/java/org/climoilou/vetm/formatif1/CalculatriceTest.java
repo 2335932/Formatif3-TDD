@@ -1,12 +1,14 @@
 package org.climoilou.vetm.formatif1;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatriceTest {
 
+    private static final String MANY_NUMBERS = "1,2,3,4,5,6,7,8";
+    private static final int MANY_NUMBERS_RESULT = 36;
     Calculatrice calculatrice;
     final static String NUMBERS_EMPTY = "";
     final static int NUMBER_ZERO = 0;
@@ -44,4 +46,9 @@ public class CalculatriceTest {
         assertEquals(ADDITION_NUMBER,result);
     }
 
+    @Test
+    public void givenAnyAmountOfNumericArgs_whenAdd_thenReturnSumOfAllNumericArgs(){
+        int result = calculatrice.Add(MANY_NUMBERS);
+        assertEquals(MANY_NUMBERS_RESULT, result);
+    }
 }

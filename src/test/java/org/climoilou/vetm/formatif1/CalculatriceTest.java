@@ -71,7 +71,8 @@ public class CalculatriceTest {
 
 
     @Test
+    public void givenAnySeparator_whenAdd_thenReturnSumOfNumericValue(){
 
-    public void givenAnySeparator_whenAdd_thenReturnSumOfNumericValue
+    }
 
 }

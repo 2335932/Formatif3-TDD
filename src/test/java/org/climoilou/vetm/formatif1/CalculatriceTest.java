@@ -48,5 +48,8 @@ public class CalculatriceTest {
     public void givenAnyAmountOfNumericArgs_whenAdd_thenReturnSumOfAllNumericArgs(){
         int result = calculatrice.Add(MANY_NUMBERS);
         assertEquals(MANY_NUMBERS_RESULT, result);
+
+
     }
+
 }

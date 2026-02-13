@@ -1,8 +1,6 @@
 package org.climoilou.vetm.formatif1;
 
 public class Calculatrice {
-
-
     int Add(String nombres) {
         int result = 0;
         char c = ' ';

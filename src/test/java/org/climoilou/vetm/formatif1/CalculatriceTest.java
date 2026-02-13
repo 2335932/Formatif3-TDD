@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatriceTest {
 
-    Calculatrice calculatrice ;
+    private static final String MANY_NUMBERS = "1,2,3,4,5,6,7,8";
+    private static final int MANY_NUMBERS_RESULT = 36;
+    Calculatrice calculatrice;
     final static String NUMBERS_EMPTY = "";
     final static int NUMBER_ZERO = 0;
     final static String ONE_NUMBER = "2";
@@ -49,4 +51,9 @@ public class CalculatriceTest {
 
 
 
+    @Test
+    public void givenAnyAmountOfNumericArgs_whenAdd_thenReturnSumOfAllNumericArgs(){
+        int result = calculatrice.Add(MANY_NUMBERS);
+        assertEquals(MANY_NUMBERS_RESULT, result);
+    }
 }

@@ -1,13 +1,13 @@
 package org.climoilou.vetm.formatif1;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatriceTest {
 
-    Calculatrice calculatrice;
+    Calculatrice calculatrice ;
     final static String NUMBERS_EMPTY = "";
     final static int NUMBER_ZERO = 0;
     final static String ONE_NUMBER = "2";
@@ -16,14 +16,12 @@ public class CalculatriceTest {
     final static int ADDITION_NUMBER = 3;
 
     @BeforeEach
-     void setUp() throws Exception {
+    void setUp()  {
         calculatrice = new Calculatrice();
     }
 
     @Test
     public void givenEmptyString_whenAdd_thenReturnZero() {
-
-
         int result = calculatrice.Add(NUMBERS_EMPTY);
 
         assertEquals(NUMBER_ZERO, result);

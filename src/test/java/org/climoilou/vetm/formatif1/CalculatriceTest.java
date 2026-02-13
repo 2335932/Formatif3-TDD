@@ -9,6 +9,9 @@ public class CalculatriceTest {
 
     private static final String MANY_NUMBERS = "1,2,3,4,5,6,7,8";
     private static final int MANY_NUMBERS_RESULT = 36;
+
+    private static final int VALEUR_SIX= 6;
+    private static final String DELIMITEUR_NEWLIGNE= "1\n2\n3";
     Calculatrice calculatrice;
     final static String NUMBERS_EMPTY = "";
     final static int NUMBER_ZERO = 0;
@@ -25,7 +28,6 @@ public class CalculatriceTest {
     @Test
     public void givenEmptyString_whenAdd_thenReturnZero() {
         int result = calculatrice.Add(NUMBERS_EMPTY);
-
         assertEquals(NUMBER_ZERO, result);
 
     }
@@ -33,22 +35,28 @@ public class CalculatriceTest {
     @Test
     public void givenOneNumberString_whenAdd_thenReturnThisNumber() {
         int result = calculatrice.Add(ONE_NUMBER);
-
         assertEquals(NUMBER_TWO, result);
     }
 
     @Test
     public void givenTwoNumberString_whenAddTwoNumber_thenReturnSumOfTwoNumber(){
         int result = calculatrice.Add(MULTIPLE_NUMBER);
-
         assertEquals(ADDITION_NUMBER,result);
     }
+
 
     @Test
     public void givenAnyAmountOfNumericArgs_whenAdd_thenReturnSumOfAllNumericArgs(){
         int result = calculatrice.Add(MANY_NUMBERS);
         assertEquals(MANY_NUMBERS_RESULT, result);
+    }
 
+    @Test
+    public void givenAnyNumberSTringContainSeparatorNewLigne_whenAdd_thenReturnSumOfNumericArgs(){
+
+        int result = calculatrice.Add(DELIMITEUR_NEWLIGNE);
+
+        assertEquals(VALEUR_SIX,result);
 
     }
 

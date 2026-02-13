@@ -69,4 +69,9 @@ public class CalculatriceTest {
         assertThrows(RuntimeException.class, executable);
     }
 
+
+    @Test
+
+    public void givenAnySeparator_whenAdd_thenReturnSumOfNumericValue
+
 }

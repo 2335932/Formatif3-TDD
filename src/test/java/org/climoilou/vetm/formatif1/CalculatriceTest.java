@@ -12,6 +12,8 @@ public class CalculatriceTest {
     final static int NUMBER_ZERO = 0;
     final static String ONE_NUMBER = "2";
     final static int NUMBER_TWO = 2;
+    final static String MULTIPLE_NUMBER = "2,1";
+    final static int ADDITION_NUMBER = 3;
 
     @BeforeEach
      void setUp() throws Exception {
@@ -21,7 +23,6 @@ public class CalculatriceTest {
     @Test
     public void givenEmptyString_whenAdd_thenReturnZero() {
 
-        Calculatrice calculatrice = new Calculatrice();
 
         int result = calculatrice.Add(NUMBERS_EMPTY);
 
@@ -30,11 +31,17 @@ public class CalculatriceTest {
     }
 
     @Test
-    public void givenTwoString_whenAdd_thenReturnTwo() {
-
-        Calculatrice calculatrice = new Calculatrice();
+    public void givenOneNumberString_whenAdd_thenReturnThisNumber() {
         int result = calculatrice.Add(ONE_NUMBER);
+
         assertEquals(NUMBER_TWO, result);
+    }
+
+    @Test
+    public void givenTwoNumberString_whenAddTwoNumber_thenReturnSumOfTwoNumber(){
+        int result = calculatrice.Add(MULTIPLE_NUMBER);
+
+        assertEquals(ADDITION_NUMBER,result);
     }
 
 }

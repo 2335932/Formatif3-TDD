@@ -18,14 +18,12 @@ public class CalculatriceTest {
     final static int ADDITION_NUMBER = 3;
 
     @BeforeEach
-     void setUp() throws Exception {
+    void setUp()  {
         calculatrice = new Calculatrice();
     }
 
     @Test
     public void givenEmptyString_whenAdd_thenReturnZero() {
-
-
         int result = calculatrice.Add(NUMBERS_EMPTY);
 
         assertEquals(NUMBER_ZERO, result);
